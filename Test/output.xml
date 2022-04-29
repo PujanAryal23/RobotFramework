@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20220429 12:58:37.368" generator="Robot 3.2.1 (Python 2.7.18 on darwin)">
+<suite source="/Users/logpoint/eclipse-workspace/Test/TestSuite.robot" id="s1" name="TestSuite">
+<kw type="setup" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Suite Setup</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.643" level="INFO">Suite Setup</msg>
+<status status="PASS" endtime="20220429 12:58:37.644" starttime="20220429 12:58:37.643"></status>
+</kw>
+<test id="s1-t1" name="FirstTest">
+<kw type="setup" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test ${TEST NAME} Setup</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.645" level="INFO">Test FirstTest Setup</msg>
+<status status="PASS" endtime="20220429 12:58:37.645" starttime="20220429 12:58:37.644"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>test</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.645" level="INFO">test</msg>
+<status status="PASS" endtime="20220429 12:58:37.645" starttime="20220429 12:58:37.645"></status>
+</kw>
+<kw type="teardown" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test ${TEST NAME} Completed</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.646" level="INFO">Test FirstTest Completed</msg>
+<status status="PASS" endtime="20220429 12:58:37.646" starttime="20220429 12:58:37.646"></status>
+</kw>
+<tags>
+<tag>smoke</tag>
+</tags>
+<status status="PASS" endtime="20220429 12:58:37.646" critical="yes" starttime="20220429 12:58:37.644"></status>
+</test>
+<test id="s1-t2" name="FirstSeleniumTest">
+<kw type="setup" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test ${TEST NAME} Setup</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.647" level="INFO">Test FirstSeleniumTest Setup</msg>
+<status status="PASS" endtime="20220429 12:58:37.647" starttime="20220429 12:58:37.647"></status>
+</kw>
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<arguments>
+<arg>PATH</arg>
+<arg>${testsRootFolder}</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.648" level="INFO">Environment variable 'PATH' set to value '/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aakash/Downloads/jmeter/bin:/Users/aakash/Library/Python/2.7/bin:/Users/aakash/Downloads/webdriver:/Users/logpoint/eclipse-workspace/Test/driver/'.</msg>
+<status status="PASS" endtime="20220429 12:58:37.648" starttime="20220429 12:58:37.648"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20220429 12:58:37.648" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fef5f335810&gt;</msg>
+<status status="PASS" endtime="20220429 12:58:37.648" starttime="20220429 12:58:37.648"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+</arguments>
+<status status="PASS" endtime="20220429 12:58:37.649" starttime="20220429 12:58:37.649"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+</arguments>
+<assign>
+<var>${options}</var>
+</assign>
+<msg timestamp="20220429 12:58:37.649" level="INFO">${options} = {'goog:chromeOptions': {'args': [u'--ignore-certificate-errors'], 'extensions': []}, 'platform': 'ANY', 'browserName': 'chrome', 'version': ''}</msg>
+<status status="PASS" endtime="20220429 12:58:37.649" starttime="20220429 12:58:37.649"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${urls}[1]</arg>
+<arg>chrome</arg>
+<arg>desired_capabilities=${options}</arg>
+</arguments>
+<msg timestamp="20220429 12:58:37.650" level="INFO">Opening browser 'chrome' to base url 'https://google.com'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220429 12:58:40.640" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" endtime="20220429 12:58:40.640" starttime="20220429 12:58:40.640"></status>
+</kw>
+<msg timestamp="20220429 12:58:40.648" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 84
+</msg>
+<status status="FAIL" endtime="20220429 12:58:40.648" starttime="20220429 12:58:37.650"></status>
+</kw>
+<kw type="teardown" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test ${TEST NAME} Completed</arg>
+</arguments>
+<msg timestamp="20220429 12:58:40.650" level="INFO">Test FirstSeleniumTest Completed</msg>
+<status status="PASS" endtime="20220429 12:58:40.650" starttime="20220429 12:58:40.649"></status>
+</kw>
+<tags>
+<tag>sanity</tag>
+</tags>
+<status status="FAIL" endtime="20220429 12:58:40.650" critical="yes" starttime="20220429 12:58:37.646">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 84
+</status>
+</test>
+<test id="s1-t3" name="LoginTest">
+<kw type="setup" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test ${TEST NAME} Setup</arg>
+</arguments>
+<msg timestamp="20220429 12:58:40.651" level="INFO">Test LoginTest Setup</msg>
+<status status="PASS" endtime="20220429 12:58:40.652" starttime="20220429 12:58:40.651"></status>
+</kw>
+<kw name="Open Browser Locally">
+<kw name="Append To Environment Variable" library="OperatingSystem">
+<doc>Appends given ``values`` to environment variable ``name``.</doc>
+<arguments>
+<arg>PATH</arg>
+<arg>${testsRootFolder}</arg>
+</arguments>
+<msg timestamp="20220429 12:58:40.652" level="INFO">Environment variable 'PATH' set to value '/Library/Frameworks/Python.framework/Versions/2.7/bin:/Library/Frameworks/Python.framework/Versions/3.10/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/aakash/Downloads/jmeter/bin:/Users/aakash/Library/Python/2.7/bin:/Users/aakash/Downloads/webdriver:/Users/logpoint/eclipse-workspace/Test/driver/:/Users/logpoint/eclipse-workspace/Test/driver/'.</msg>
+<status status="PASS" endtime="20220429 12:58:40.652" starttime="20220429 12:58:40.652"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20220429 12:58:40.653" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7fef5f4e9810&gt;</msg>
+<status status="PASS" endtime="20220429 12:58:40.653" starttime="20220429 12:58:40.653"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--ignore-certificate-errors</arg>
+</arguments>
+<status status="PASS" endtime="20220429 12:58:40.653" starttime="20220429 12:58:40.653"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>to_capabilities</arg>
+</arguments>
+<assign>
+<var>${options}</var>
+</assign>
+<msg timestamp="20220429 12:58:40.654" level="INFO">${options} = {'goog:chromeOptions': {'args': [u'--ignore-certificate-errors'], 'extensions': []}, 'platform': 'ANY', 'browserName': 'chrome', 'version': ''}</msg>
+<status status="PASS" endtime="20220429 12:58:40.654" starttime="20220429 12:58:40.653"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${urls}[0]</arg>
+<arg>chrome</arg>
+<arg>desired_capabilities=${options}</arg>
+</arguments>
+<msg timestamp="20220429 12:58:40.654" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com'.</msg>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220429 12:58:43.676" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<status status="PASS" endtime="20220429 12:58:43.676" starttime="20220429 12:58:43.675"></status>
+</kw>
+<msg timestamp="20220429 12:58:43.678" level="FAIL">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 84
+</msg>
+<status status="FAIL" endtime="20220429 12:58:43.678" starttime="20220429 12:58:40.654"></status>
+</kw>
+<status status="FAIL" endtime="20220429 12:58:43.679" starttime="20220429 12:58:40.652"></status>
+</kw>
+<kw type="teardown" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Test ${TEST NAME} Completed</arg>
+</arguments>
+<msg timestamp="20220429 12:58:43.681" level="INFO">Test LoginTest Completed</msg>
+<status status="PASS" endtime="20220429 12:58:43.681" starttime="20220429 12:58:43.680"></status>
+</kw>
+<doc>This is a sample login test</doc>
+<tags>
+<tag>sanity</tag>
+</tags>
+<status status="FAIL" endtime="20220429 12:58:43.681" critical="yes" starttime="20220429 12:58:40.651">SessionNotCreatedException: Message: session not created: This version of ChromeDriver only supports Chrome version 84
+</status>
+</test>
+<kw type="teardown" name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Suite Completed</arg>
+</arguments>
+<msg timestamp="20220429 12:58:43.682" level="INFO">Suite Completed</msg>
+<status status="PASS" endtime="20220429 12:58:43.683" starttime="20220429 12:58:43.682"></status>
+</kw>
+<status status="FAIL" endtime="20220429 12:58:43.683" starttime="20220429 12:58:37.370"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="2" pass="1">Critical Tests</stat>
+<stat fail="2" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat fail="2" pass="0">sanity</stat>
+<stat fail="0" pass="1">smoke</stat>
+</tag>
+<suite>
+<stat fail="2" id="s1" name="TestSuite" pass="1">TestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

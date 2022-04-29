@@ -56,6 +56,10 @@ LoginTest
     Sleep    3   
     Close Browser
     Log    Login Complete
-    Log    This test was executed by %{HOME}     
+    Log    This test was executed by %{HOME}
+    
+Sample Test
+    Log    Just For Testing
+     
 
 
